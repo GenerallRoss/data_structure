@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
+
 class Tree {
   int value;
   Tree? left;
   Tree? right;
   Tree(this.value);
 
-  // @override
-  // String toString() {
-  //   return _diagram(this);
-  // }
+  @override
+  String toString() {
+    return _diagram(this);
+  }
 
   String _diagram(
     Tree? node, [
@@ -22,14 +24,14 @@ class Tree {
       return '$root ${node.value}\n';
     }
     final a = _diagram(
-      node.right!,
+      node.right,
       '$top ',
       '$top┌──',
       '$top│ ',
     );
     final b = '$root${node.value}\n';
     final c = _diagram(
-      node.left!,
+      node.left,
       '$bottom│ ',
       '$bottom└──',
       '$bottom ',
@@ -56,13 +58,13 @@ Tree addNode(Tree tree, int value) {
   }
 }
 
-// void printTree(Tree? tree, int length) {
-//   if (tree != null) {
-//     printTree(tree.right, length + 5);
-//     for (int i = 0; i < length; i++) {
-//       debugPrint(' ');
-//     }
-//     debugPrint('${tree.value.toString()}\n');
-//     printTree(tree.left, length + 5);
-//   }
-// }
+void printTree(Tree? tree, int length) {
+  if (tree != null) {
+    printTree(tree.right, length + 5);
+    for (int i = 0; i < length; i++) {
+      debugPrint(' ');
+    }
+    debugPrint('${tree.value.toString()}\n');
+    printTree(tree.left, length + 5);
+  }
+}

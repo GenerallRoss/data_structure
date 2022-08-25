@@ -10,6 +10,6 @@ void runMyTree() {
   addNode(tree, 1);
   addNode(tree, 4);
   if (kDebugMode) {
-    print(tree);
+    print(tree.toString());
   }
 }
